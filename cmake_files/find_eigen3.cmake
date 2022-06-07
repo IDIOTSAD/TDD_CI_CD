@@ -15,7 +15,7 @@ endif (CMAKE_BUILD_TYPE MATCHES "Release")
 #endif(NOT Eigen3_FOUND)
 
 if(${Eigen3_FOUND})
-  message(STATUS "Found: Eigen3 - ${EIGEN3_INCLUDE_DIRS}")
+  message(STATUS "Found: Eigen3 - ${EIGEN3_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/eigen/install/Debug/share/eigen3/cmake")
 
   include_directories(${EIGEN3_INCLUDE_DIRS})
   set(EIGEN3_LIBS Eigen3::Eigen)
