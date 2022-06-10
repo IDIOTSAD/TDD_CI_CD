@@ -68,20 +68,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_subdirectory(modules/module1)
+add_subdirectory(modules/module2)
 #add_compile_options(-Wall -std=c++17 -O2 -fPIC)
 
 #----------------------------------------
 # Executables
 #----------------------------------------
 
-add_executable(example1
-        examples/example1.cpp
+add_executable(exec_stitching
+        examples/exec_stitching.cpp
         )
-target_include_directories(example1 PRIVATE
-        ${MODULE1_INCLUDE_PATH}
+target_include_directories(exec_stitching PRIVATE
+        ${MODULE2_INCLUDE_PATH}
         )
-target_link_libraries(example1 PRIVATE
-        module1
+target_link_libraries(exec_stitching PRIVATE
+        module2
         )
 
 add_executable(exec_matrix_mul
