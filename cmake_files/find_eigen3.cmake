@@ -1,11 +1,11 @@
 message(STATUS "Finding Eigen3...")
 
 if (CMAKE_BUILD_TYPE MATCHES "Debug")
-  find_package(Eigen3 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/eigen/install/Debug/share/eigen3/cmake)
+  find_package(Eigen3 3.3.9 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/eigen/install/Debug/share/eigen3/cmake)
 endif (CMAKE_BUILD_TYPE MATCHES "Debug")
 
 if (CMAKE_BUILD_TYPE MATCHES "Release")
-  find_package(Eigen3 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/eigen/install/Release/share/eigen3/cmake)
+  find_package(Eigen3 3.3.9 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/eigen/install/Release/share/eigen3/cmake)
 endif (CMAKE_BUILD_TYPE MATCHES "Release")
 
 # If not found, use Pkgconfig to find Eigen3 (But probably won't reach here...)

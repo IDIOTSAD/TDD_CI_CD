@@ -26,7 +26,7 @@ add_definitions(-DMODULE1_RESOURCES_DIR="${MODULE1_RESOURCES_PATH}")
 
 # Source files
 set(MODULE1_SOURCE_FILES
-        src/Class.cpp
+        src/Matrix_mul.cpp
         )
 add_library(${PACKAGE_NAME}
         ${MODULE1_SOURCE_FILES}
@@ -41,6 +41,7 @@ target_include_directories(${PACKAGE_NAME} PRIVATE
 target_link_libraries(${PACKAGE_NAME} PRIVATE
         ${EASY_PROFILER_LIBS}
         ${SPDLOG_LIBS}
+        ${OpenCV_LIBS}
         stdc++fs
         )
 
@@ -49,7 +50,7 @@ target_compile_options(${PACKAGE_NAME} PRIVATE
         -Wall -Wextra -Wpedantic -Werror
         )
 set_target_properties(${PACKAGE_NAME} PROPERTIES
-        CXX_STANDARD 11
+        CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         CXX_EXTENSIONS OFF
         )

@@ -62,12 +62,13 @@ include_directories("modules")
 #----------------------------------------
 # Build internal libraries
 #----------------------------------------
-set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "11")
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "17")
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_subdirectory(modules/module1)
+#add_compile_options(-Wall -std=c++17 -O2 -fPIC)
 
 #----------------------------------------
 # Executables
@@ -80,5 +81,15 @@ target_include_directories(example1 PRIVATE
         ${MODULE1_INCLUDE_PATH}
         )
 target_link_libraries(example1 PRIVATE
+        module1
+        )
+
+add_executable(exec_matrix_mul
+        examples/exec_matrix_mul.cpp
+        )
+target_include_directories(exec_matrix_mul PRIVATE
+        ${MODULE1_INCLUDE_PATH}
+        )
+target_link_libraries(exec_matrix_mul PRIVATE
         module1
         )
