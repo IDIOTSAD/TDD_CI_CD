@@ -9,9 +9,6 @@
 #include "easy/profiler.h"
 #include "spdlog/spdlog.h"
 #include <iostream>
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
 #include <opencv2/opencv.hpp>
 #include <opencv2/features2d.hpp>
 
@@ -32,11 +29,17 @@ private:
   cv::Mat HomoMatrix;
   cv::Mat matResult;
 public:
-  bool input_pictures(std::string image1, std::string image2);
-  void cal_descripter(std::string name);
+  bool input_pictures(const std::string& image1, std::string image2);
+  bool input_pictures_filp(const std::string& image1, std::string image2);
+  bool input_pictures(cv::Mat image1, cv::Mat image2);
+  bool input_pictures(const std::string& image1, cv::Mat image2);
+  bool input_pictures(cv::Mat image1, const std::string& image2);
+
+  void cal_descripter(const std::string& name);
   void cal_good_matches(int num);
   void show_feature();
+  cv::Mat getResult();
+  void show_feature_flip();
 };
-
 
 #endif  // SVSLAM_STITCHING_HPP
